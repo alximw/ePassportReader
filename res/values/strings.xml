@@ -12,5 +12,8 @@
     	<string name="credentials_bDate">Birth Date:</string>
     	<string name="credentials_eDate">Expiry Date:</string>
     	<string name="credentials_DocNumber">Document Number:</string>
+    	
+    	<!-- Action Bar -->
+    	<string name="actionBar_add">Add</string>
 
 </resources>
