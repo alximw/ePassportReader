@@ -4,16 +4,21 @@
     <string name="app_name">ePassportReader</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    
+
     <!-- GUI STRINGS -->
-    	<!-- main activity -->
-    	<string name="main_textView">Choose credentials entry for ePassport reading</string>
-    	<string name="main_addCredentials">New Entry</string>
-    	<string name="credentials_bDate">Birth Date:</string>
-    	<string name="credentials_eDate">Expiry Date:</string>
-    	<string name="credentials_DocNumber">Document Number:</string>
-    	
+   	 	<!-- main activity -->
+    		<string name="main_textView">Choose credentials entry for ePassport reading</string>
+    		<string name="main_addCredentials">New Entry</string>
+    		<string name="credentials_bDate">Birth Date:</string>
+    		<string name="credentials_eDate">Expiry Date:</string>
+    		<string name="credentials_DocNumber">Document Number:</string>
+
     	<!-- Action Bar -->
-    	<string name="actionBar_add">Add</string>
+    		<string name="actionBar_add">Add</string>
+    		<string name="title_activity_credential_editor">CredentialEditor</string>
+    	
+    	<!-- Editor Save Button -->
+    		<string name="editor_saveButton">Save</string>
+
 
 </resources>

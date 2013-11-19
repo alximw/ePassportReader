@@ -1,10 +1,13 @@
 package com.uc3m.epassportreader.GUI;
 
+import com.uc3m.epassportreader.CredentialEditor;
 import com.uc3m.epassportreader.R;
 import com.uc3m.epassportreader.Data.CredentialListAdapter;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -12,8 +15,8 @@ import android.widget.ListView;
 
 public class CredentialChooser extends  Activity{
 
-Button add;				
-ListView credentialList;
+private ListView credentialList;
+public static CredentialListAdapter adapter;
 	
 	
 	
@@ -26,9 +29,22 @@ ListView credentialList;
 		credentialList=(ListView)findViewById(R.id.main_credentialsList);
 		
 		//create new listAdapter (custom) and set it as credential list adapter
-		CredentialListAdapter adapter=new CredentialListAdapter(getApplicationContext(),R.layout.credentiallayout);
+		adapter=new CredentialListAdapter(getApplicationContext(),R.layout.credential_layout);
 		credentialList.setAdapter(adapter);
+		
 	}
+
+	
+
+
+	@Override
+	protected void onResume() {
+		Log.d("DEBUG",String.valueOf(adapter.getCount()));
+		adapter.notifyDataSetChanged();
+		super.onResume();
+		
+	}
+
 
 
 
@@ -46,7 +62,10 @@ ListView credentialList;
 		switch (item.getItemId()) {
 		case R.id.menu_add:
 			//menu add button
-			//TODO: addCredential intent/dialog
+			//TODO: addCredential inte;nt/dialog
+			Intent intent=new Intent(getApplicationContext(), CredentialEditor.class);
+			this.startActivity(intent);
+
 			break;
 
 		default:

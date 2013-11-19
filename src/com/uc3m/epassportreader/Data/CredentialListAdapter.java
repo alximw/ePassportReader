@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.uc3m.epassportreader.R;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,10 @@ import android.widget.TextView;
 public class CredentialListAdapter extends ArrayAdapter<Credentials> {
 
 	//list of credentials shown on the list
-	private ArrayList<Credentials> list;
-	private Context adapterContext;
+	ArrayList<Credentials> list;
+	Context adapterContext;
 	int layout;
-	private static class ListElementHolder{
+    static class ListElementHolder{
 		TextView eDate;
 		TextView bDate;
 		TextView ID;
@@ -32,13 +33,20 @@ public class CredentialListAdapter extends ArrayAdapter<Credentials> {
 
 
 	}
+	
+	public ArrayList<Credentials> getList(){
+		return this.list;
+	}
+	
+	
+	public void  addItem(Credentials newCreds){
+		this.list.add(newCreds);
+	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View listElement=convertView;
-		ListElementHolder elementHolder;
-		//TODO: Create Holder class
-		
+		ListElementHolder elementHolder;		
 		
 		if(listElement==null){
 			//ListElement has not been previously created
@@ -60,7 +68,7 @@ public class CredentialListAdapter extends ArrayAdapter<Credentials> {
 		
 		elementHolder.bDate.setText(list.get(position).getBirthDate().toString() );
 		elementHolder.eDate.setText(list.get(position).getExpiryDate().toString() );
-		elementHolder.bDate.setText(list.get(position).getePassportID());
+		elementHolder.ID.setText(list.get(position).getePassportID());
 		
 		
 		return listElement;	
