@@ -1,6 +1,9 @@
 package com.uc3m.epassportreader.Data;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import android.util.Log;
 
 public class Credentials {
 
@@ -19,7 +22,25 @@ public class Credentials {
 	}
 
 	public Date getBirthDate() {
+		
 		return birthDate;
+	}
+	
+	
+	public String getBirthDateAsString(){
+		String date="";
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
+		date=dateFormat.format(this.birthDate);
+		
+		return date;
+	}
+	
+	public String getExpiryDateAsString(){
+		String date="";
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
+		date=dateFormat.format(this.expiryDate);
+		
+		return date;
 	}
 
 	public void setBirthDate(Date birthDate) {

@@ -8,13 +8,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/main_textView"
+        android:layout_marginBottom="20dp"
         />
-    <ScrollView 
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fillViewport="false"    
-        android:layout_weight="1"    
-        >
+ 
 
         <ListView
             android:id="@+id/main_credentialsList"
@@ -23,7 +19,7 @@
             >
 		</ListView>
         
-    </ScrollView>
+   
 
     
 

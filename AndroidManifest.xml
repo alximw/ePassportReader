@@ -27,7 +27,7 @@
         
         
         <activity
-            android:name="com.uc3m.epassportreader.CredentialEditor"
+            android:name="com.uc3m.epassportreader.GUI.CredentialEditor"
             android:label="@string/title_activity_credential_editor" >
         </activity>
     
