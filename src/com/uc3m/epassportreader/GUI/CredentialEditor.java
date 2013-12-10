@@ -95,6 +95,18 @@ public class CredentialEditor extends Activity implements OnClickListener{
 		eDate.setOnClickListener(this);
 		docNumber.setOnClickListener(this);
 		save.setOnClickListener(this);
+		
+		
+		if(getIntent().getExtras()!=null){
+		Credentials creds2Edit=(Credentials) getIntent().getExtras().getSerializable("credentials");
+		updateView(creds2Edit.getBirthDateAsString(), bDate.getId());
+		updateView(creds2Edit.getExpiryDateAsString(), eDate.getId());
+		updateView(creds2Edit.getePassportID(), docNumber.getId());
+		//disable user input to avoid PK modification
+		docNumber.setKeyListener(null);
+		
+		}
+		
 	
 	}
 
@@ -135,10 +147,19 @@ public class CredentialEditor extends Activity implements OnClickListener{
 			newCredential.setExpiryDate(date2);
 			newCredential.setePassportID(docNumber.getText().toString());
 			
-			handler.insertEPassport(newCredential);
+			//TODO: check if we are adding or editing
+			
+			if(getIntent().getExtras()!=null){
+				//editing
+				handler.updateEPassport(newCredential);
+			}else{
+				//adding
+				handler.insertEPassport(newCredential);
+			}
+			
 			Intent i=new Intent(getApplicationContext(),CredentialChooser.class);
 			startActivity(i);
-
+			
 			break;
 			
 		default:
@@ -148,16 +169,20 @@ public class CredentialEditor extends Activity implements OnClickListener{
 		
 	}
 
-	public static void updateView(String date, int viewID){
+	public static void updateView(String text, int viewID){
 
 			switch(viewID){
 			
 			case R.id.editor_bDateInput:
-				bDate.setText(date);
+				bDate.setText(text);
 				break;
 				
 			case R.id.editor_eDateInput:
-				eDate.setText(date);
+				eDate.setText(text);
+				break;
+			
+			case R.id.editor_docNumberInput:
+				docNumber.setText(text);
 				break;
 				
 			default:

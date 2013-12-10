@@ -2,15 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
     android:orientation="vertical" >
     
     <TextView 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/main_textView"
-        android:layout_marginBottom="20dp"
         />
- 
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="false"    
+        android:layout_weight="1"    
+        >
 
         <ListView
             android:id="@+id/main_credentialsList"
@@ -19,7 +24,7 @@
             >
 		</ListView>
         
-   
+    </ScrollView>
 
     
 

@@ -9,9 +9,9 @@
    	 	<!-- main activity -->
     		<string name="main_textView">Choose credentials entry for ePassport reading</string>
     		<string name="main_addCredentials">New Entry</string>
-    		<string name="credentials_bDate">Birth Date:</string>
-    		<string name="credentials_eDate">Expiry Date:</string>
-    		<string name="credentials_DocNumber">Document Number:</string>
+    		<string name="credentials_bDate">Birth Date</string>
+    		<string name="credentials_eDate">Expiration Date</string>
+    		<string name="credentials_DocNumber">Document Number</string>
 
     	<!-- Action Bar -->
     		<string name="actionBar_add">Add</string>
@@ -19,6 +19,5 @@
     	
     	<!-- Editor Save Button -->
     		<string name="editor_saveButton">Save</string>
-
 
 </resources>

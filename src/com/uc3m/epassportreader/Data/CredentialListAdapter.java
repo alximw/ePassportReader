@@ -1,8 +1,10 @@
 package com.uc3m.epassportreader.Data;
 
 import java.util.ArrayList;
+
 import com.uc3m.epassportreader.R;
 import com.uc3m.epassportreader.Utils.Utils;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +34,7 @@ public class CredentialListAdapter extends ArrayAdapter<Credentials> {
 	
 	
 	
+	
 	public CredentialListAdapter(Context context, int resource, ArrayList<Credentials> objects) {
 		super(context, resource, objects);
 		
@@ -40,6 +43,9 @@ public class CredentialListAdapter extends ArrayAdapter<Credentials> {
 		this.adapterContext=context;
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	
 
 
 	/**
@@ -96,7 +102,9 @@ public class CredentialListAdapter extends ArrayAdapter<Credentials> {
 		elementHolder.bDate.setText("Birth Date: "+list.get(position).getBirthDateAsString() );
 		elementHolder.eDate.setText("Expiry Date: "+list.get(position).getExpiryDateAsString());
 		elementHolder.ID.setText("ID: "+list.get(position).getePassportID());
-		
+		if(position%2==0){
+			listElement.setBackgroundColor(0xA1FDFF);
+		}
 		
 		return listElement;	
 	}

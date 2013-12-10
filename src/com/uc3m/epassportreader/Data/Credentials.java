@@ -1,11 +1,12 @@
 package com.uc3m.epassportreader.Data;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.util.Log;
 
-public class Credentials {
+public class Credentials implements Serializable {
 
 	private Date birthDate;
 	private Date expiryDate;

@@ -77,11 +77,12 @@ public class DataBaseHandler {
 				cv.put(DataBaseHelper.DATE_OF_BIRTH, birthDate);
 				String expiryDate = dateFormat.format(ePassport.getExpiryDate());
 				cv.put(DataBaseHelper.EXPIRATION_DATE, expiryDate);
-				String whereConstrait = DataBaseHelper.DOCUMENT_NUMBER + "=" + ePassport.getePassportID();
+				String whereConstrait = DataBaseHelper.DOCUMENT_NUMBER + "=" +"\""+ePassport.getePassportID()+"\"";
 
 				//Insert the values of the ContentValues object in the table of the database
 				Log.d("DEBUG", "Update the ePassport table");	
 				db.update("ePassport", cv, whereConstrait, null);
+
 
 			} catch (ParseException e) {
 				e.printStackTrace();  
@@ -110,7 +111,7 @@ public class DataBaseHandler {
 
 			try{
 				
-				String whereConstrait = DataBaseHelper.DOCUMENT_NUMBER + "=" + ePassport.getePassportID();
+				String whereConstrait = DataBaseHelper.DOCUMENT_NUMBER + "= \"" + ePassport.getePassportID()+"\"";
 
 				//Insert the values of the ContentValues object in the table of the database
 				Log.d("DEBUG", "Delete a record of the ePassport table");	
