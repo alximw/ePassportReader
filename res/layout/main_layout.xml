@@ -9,13 +9,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/main_textView"
+        android:paddingBottom="5dp"
         />
-    <ScrollView 
+    
+	    <View
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fillViewport="false"    
-        android:layout_weight="1"    
-        >
+        android:layout_height="1dp"
+        android:background="@android:color/white" />
 
         <ListView
             android:id="@+id/main_credentialsList"
@@ -23,8 +23,7 @@
             android:layout_height="wrap_content" 
             >
 		</ListView>
-        
-    </ScrollView>
+
 
     
 

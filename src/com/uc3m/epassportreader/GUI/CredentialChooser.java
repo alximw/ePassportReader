@@ -1,14 +1,13 @@
 package com.uc3m.epassportreader.GUI;
 
-import com.uc3m.epassportreader.R;
-import com.uc3m.epassportreader.Data.CredentialListAdapter;
-import com.uc3m.epassportreader.Data.Credentials;
-import com.uc3m.epassportreader.DataBase.DataBaseHandler;
+import java.util.Date;
 
-import android.os.Bundle;
-import android.provider.SyncStateContract.Helpers;
 import android.app.Activity;
 import android.content.Intent;
+import android.nfc.NfcAdapter;
+import android.nfc.Tag;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -19,13 +18,21 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemLongClickListener;
+
+import com.uc3m.epassportreader.R;
+import com.uc3m.epassportreader.Data.CredentialListAdapter;
+import com.uc3m.epassportreader.Data.Credentials;
+import com.uc3m.epassportreader.DataBase.DataBaseHandler;
+import com.uc3m.epassportreader.Utils.Utils;
 
 public class CredentialChooser extends  Activity implements OnItemClickListener{
 
+public static final String READING_ACTION="PASSING_BAC";
+	
 public final static boolean DEBUG=true;	
 private ListView credentialList;
 public static CredentialListAdapter adapter;
+
 	
 	DataBaseHandler handler;
 	@Override
@@ -44,9 +51,24 @@ public static CredentialListAdapter adapter;
 		adapter=new CredentialListAdapter(getApplicationContext(),R.layout.credential_layout,handler.getEPassports());
 		credentialList.setAdapter(adapter);
 		registerForContextMenu(credentialList);
+		credentialList.setOnItemClickListener(this);
 		
 	}
 
+	
+	public void onNewIntent(Intent intent){
+		super.onNewIntent(intent);
+		setIntent(intent); 
+		Log.i("NFC", "adsdsd");
+		if (intent.getAction().equals(NfcAdapter.ACTION_TECH_DISCOVERED)||
+				intent.getAction().equals(NfcAdapter.ACTION_TAG_DISCOVERED)){
+			Tag T=intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+			for(String a:T.getTechList()){
+				Log.i("NFC", a);
+			}
+		}
+		
+	}
 	
 
 
@@ -162,9 +184,28 @@ public static CredentialListAdapter adapter;
 
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+	public void onItemClick(AdapterView parent, View listItem, int position, long ID) {
+
+		
+		//retrieve the data from the view
+		CredentialListAdapter adapter= (CredentialListAdapter) parent.getAdapter();
+		Date birthDate=adapter.getItem(position).getBirthDate();
+		Date ExpityDate=adapter.getItem(position).getExpiryDate();
+		String docID=adapter.getItem(position).getePassportID();
+		Credentials BAC=new Credentials(birthDate, ExpityDate, docID);
+		
+		Utils.debug(Utils.DEBUG, "item selected: "+docID);
+
+		Intent i=new Intent(getApplicationContext(),ReaderActivity.class);
+		i.putExtra("BAC_EXTRA", BAC)
+		.setAction(this.READING_ACTION);
+		
+		startActivity(i);
 		
 	}
+
+
+
 
 
 
