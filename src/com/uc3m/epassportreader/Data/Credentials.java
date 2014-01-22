@@ -1,72 +1,93 @@
 package com.uc3m.epassportreader.Data;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.util.Log;
+import org.jmrtd.BACKey;
 
-public class Credentials implements Serializable {
 
-	private Date birthDate;
-	private Date expiryDate;
-	private String ePassportID;
-	
-	public Credentials(){
-		super();
+
+
+
+public class Credentials extends BACKey implements Serializable{
+
+	SimpleDateFormat formater_dmy=new SimpleDateFormat("dd/MM/yy");
+	SimpleDateFormat formater_ymd = new SimpleDateFormat("yyMMdd"); 
+
+
+
+	public Credentials(String documentID, Date birthDate, Date expiryDate) {
+		super(documentID, birthDate, expiryDate);
+		// TODO Auto-generated constructor stub
 	}
-	
-	public Credentials(Date birth,Date expiry,String ID){
-		this.birthDate=birth;
-		this.expiryDate=expiry;
-		this.ePassportID=ID;
+
+	public Credentials(String documentID, String birthDate, String expiryDate) {
+		super(documentID, birthDate, expiryDate);
+		// TODO Auto-generated constructor stub
 	}
 
-	public Date getBirthDate() {
+	public Credentials() {
+	}
+
+
+	public String getExpiryDateAsFormatedString() {
+		String parsedDate="";
+		try{ 
+		String date=getDateOfExpiry();
+		Date eDate=formater_ymd.parse(date);
+		parsedDate=formater_dmy.format(eDate);
+		}catch(Exception e){
+			
+		}
 		
-		return birthDate;
+		return parsedDate;
+
+
 	}
-	
-	
-	public String getBirthDateAsString(){
-		String date="";
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
-		date=dateFormat.format(this.birthDate);
+
+
+	public Date getBirthDateAsDateObject(){
 		
-		return date;
-	}
-	
-	public String getExpiryDateAsString(){
-		String date="";
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
-		date=dateFormat.format(this.expiryDate);
+		try {
+			return formater_ymd.parse(getDateOfBirth());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		return date;
+		return null;
+
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public Date getExpiryDateAsDateObject(){
+		try {
+			return formater_ymd.parse(getDateOfExpiry());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+
+
 	}
 
-	public Date getExpiryDate() {
-		return expiryDate;
+
+	public String getBirthDateAsFormatedString(){
+		String parsedDate="";
+		try{ 
+		String date=getDateOfBirth();
+		Date eDate=formater_ymd.parse(date);
+		parsedDate=formater_dmy.format(eDate);
+		}catch(Exception e){
+			
+		}
+		
+		return parsedDate;
+
+
 	}
 
-	public void setExpiryDate(Date expiryDate) {
-		this.expiryDate = expiryDate;
-	}
-
-	public String getePassportID() {
-		return ePassportID;
-	}
-
-	public void setePassportID(String ePassportID) {
-		this.ePassportID = ePassportID;
-	}
-	
-	
-	
-	
-	
-	
 }

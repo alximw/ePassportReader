@@ -98,10 +98,11 @@ public class CredentialEditor extends Activity implements OnClickListener{
 		
 		
 		if(getIntent().getExtras()!=null){
+			Log.i("lol","lol");
 		Credentials creds2Edit=(Credentials) getIntent().getExtras().getSerializable("credentials");
-		updateView(creds2Edit.getBirthDateAsString(), bDate.getId());
-		updateView(creds2Edit.getExpiryDateAsString(), eDate.getId());
-		updateView(creds2Edit.getePassportID(), docNumber.getId());
+		updateView(creds2Edit.getBirthDateAsFormatedString(), bDate.getId());
+		updateView(creds2Edit.getExpiryDateAsFormatedString(), eDate.getId());
+		updateView(creds2Edit.getDocumentNumber(), docNumber.getId());
 		//disable user input to avoid PK modification
 		docNumber.setKeyListener(null);
 		
@@ -129,9 +130,8 @@ public class CredentialEditor extends Activity implements OnClickListener{
 		
 		case R.id.editor_saveButton:
 			
-			//create new empty Credential object
-			Credentials newCredential=new Credentials();
-			//create date formating 
+			
+			//create date formater 
 			SimpleDateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
 			Date date=null,date2=null;
 			
@@ -143,9 +143,9 @@ public class CredentialEditor extends Activity implements OnClickListener{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			newCredential.setBirthDate(date);
-			newCredential.setExpiryDate(date2);
-			newCredential.setePassportID(docNumber.getText().toString());
+			
+			//create new empty Credential object
+			Credentials newCredential=new Credentials(docNumber.getText().toString(),date,date2);
 			
 			//TODO: check if we are adding or editing
 			
@@ -174,15 +174,15 @@ public class CredentialEditor extends Activity implements OnClickListener{
 			switch(viewID){
 			
 			case R.id.editor_bDateInput:
-				bDate.setText(text);
+				bDate.setText(""+text);
 				break;
 				
 			case R.id.editor_eDateInput:
-				eDate.setText(text);
+				eDate.setText(""+text);
 				break;
 			
 			case R.id.editor_docNumberInput:
-				docNumber.setText(text);
+				docNumber.setText(""+text);
 				break;
 				
 			default:

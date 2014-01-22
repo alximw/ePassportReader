@@ -13,8 +13,75 @@
     </style>
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo">
+    <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    
+     <!-- Section header style -->
+    <style name="sectionHeader" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:drawableBottom">@drawable/section_header</item>
+        <item name="android:drawablePadding">1dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/section_header_text</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Section vertical separator style -->
+    <style name="sectionVerticalSeparator">
+        <item name="android:drawableLeft">@drawable/section_separator_vertical</item>
+        <item name="android:drawablePadding">1dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/section_header_text</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Background layout style -->
+    <style name="backgroundLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/background_blue</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingTop">1dp</item>
+    </style>
+
+    <!-- Title text layout style -->
+    <style name="titleTextLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/title_layout_background</item>
+    </style>
+
+    <!-- Layout with border -->
+    <style name="layoutBorder">
+        <item name="android:background">@drawable/layout_border</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <!-- Highlighted text style -->
+    <style name="highligtedText" parent="android:attr/textAppearanceSmall">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="titleText" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/text_clear</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

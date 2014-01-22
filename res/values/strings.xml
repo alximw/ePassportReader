@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
 
     <!-- GUI STRINGS -->
-    <!-- main activity -->
+    <!-- Main activity -->
     <string name="main_textView">Choose credentials entry for ePassport reading</string>
     <string name="main_addCredentials">New Entry</string>
     <string name="credentials_bDate">Birth Date</string>
@@ -20,5 +20,31 @@
     <!-- Editor Save Button -->
     <string name="editor_saveButton">Save</string>
     <string name="title_activity_reader">ReaderActivity</string>
+    <string name="title_activity_passport_info_display">PassportInfoDisplay</string>
+
+    <!-- Passport info Layout -->
+    <string name="passport_photo">Photo</string>
+    <string name="passport_personal_info">Personal info</string>
+    <string name="passport_name">Name</string>
+    <string name="passport_surnames">Surnames</string>
+    <string name="passport_gender">Gender</string>
+    <string name="passport_nationality">Nationality</string>
+    <string name="passport_dateofbirth">Date of birth</string>
+    <string name="passport_passport_info">Passport info</string>
+    <string name="passport_number">Passport number</string>
+    <string name="passport_expeditiondate">Expedition date</string>
+    <string name="passport_expirationdate">Expiration date</string>
+    <string name="passport_id">Personal Number</string>
+    <string name="passport_certificate">Certificate</string>
+    <string name="passport_signatureal">Signature algorithm</string>
+    <string name="passport_fingerprint">SHA1 Fingerprint</string>
+    <string name="passport_datagroup_hashes">Datagroup hashes</string>
+    <string name="passport_datagroup1">Datagroup 1</string>
+    <string name="passport_datagroup2">Datagroup 2</string>
+    <string name="passport_datagroup3">Datagroup 3</string>
+    <string name="passport_datagroup15">Datagroup 14</string>
+    <string name="passport_datagroup_stored">Stored:</string>
+    <string name="passport_datagroup_computed">Computed:</string>
+    <string name="passport_datagroup_computedMD5">Computed with MD5:</string>
 
 </resources>

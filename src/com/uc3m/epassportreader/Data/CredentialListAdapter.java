@@ -1,11 +1,13 @@
 package com.uc3m.epassportreader.Data;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.uc3m.epassportreader.R;
 import com.uc3m.epassportreader.Utils.Utils;
 
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 
 public class CredentialListAdapter extends ArrayAdapter<Credentials> {
 
+	SimpleDateFormat formater;
+	
 	//list of credentials shown on the list
 	ArrayList<Credentials> list;
 	
@@ -41,6 +45,7 @@ public class CredentialListAdapter extends ArrayAdapter<Credentials> {
 		this.list=objects;
 		this.layout=resource;
 		this.adapterContext=context;
+		this.formater=new SimpleDateFormat("dd/MM/yy");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -99,12 +104,10 @@ public class CredentialListAdapter extends ArrayAdapter<Credentials> {
 			elementHolder=(ListElementHolder)listElement.getTag();
 		}
 		
-		elementHolder.bDate.setText("Birth Date: "+list.get(position).getBirthDateAsString() );
-		elementHolder.eDate.setText("Expiry Date: "+list.get(position).getExpiryDateAsString());
-		elementHolder.ID.setText("ID: "+list.get(position).getePassportID());
-		if(position%2==0){
-			listElement.setBackgroundColor(0xA1FDFF);
-		}
+		elementHolder.bDate.setText("Birth Date: "+formater.format(list.get(position).getBirthDateAsDateObject()));
+		elementHolder.eDate.setText("Expiry Date: "+formater.format(list.get(position).getExpiryDateAsDateObject()));
+		elementHolder.ID.setText("ID: "+list.get(position).getDocumentNumber());
+		
 		
 		return listElement;	
 	}

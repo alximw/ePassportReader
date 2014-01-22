@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/LinerLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/PhotoLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/photoHeader"
+                style="@style/sectionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/passport_photo" />
+
+            <ImageView
+                android:id="@+id/passportPhoto"
+                android:layout_width="180dp"
+                android:layout_height="240dp"
+                android:src="@drawable/ic_launcher" />
+            
+           
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/PersonaInfoLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/personalInfoHeader"
+                style="@style/sectionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/passport_personal_info" />
+
+            <!--
+            <LinearLayout
+                android:id="@+id/NameContainer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3" >
+
+                <TextView
+                    android:id="@+id/resourceNameTitle"
+                    style="@style/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="0.75"
+                    android:padding="5dp"
+                    android:text="@string/passport_name"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/resourceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.25"
+                    android:padding="5dp"
+                    android:text="@string/passport_name" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/SurnamesContainer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3" >
+
+                <TextView
+                    android:id="@+id/surnamesTitle"
+                    style="@style/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="0.75"
+                    android:padding="5dp"
+                    android:text="@string/passport_surnames"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/surnamesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="2.25"
+                    android:padding="5dp"
+                    android:text="@string/passport_surnames" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/DateofbirthContainer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3" >
+
+                <TextView
+                    android:id="@+id/dateofbirthTitle"
+                    style="@style/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="0.75"
+                    android:padding="5dp"
+                    android:text="@string/passport_dateofbirth"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/dateofbirthText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="2.25"
+                    android:padding="5dp"
+                    android:text="@string/passport_dateofbirth" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/GenderContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3" >
+
+                <TextView
+                    android:id="@+id/genderTitle"
+                    style="@style/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="0.75"
+                    android:padding="5dp"
+                    android:text="@string/passport_gender"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/genderText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="2.25"
+                    android:padding="5dp"
+                    android:text="@string/passport_gender" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/NationalityContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3" >
+
+                <TextView
+                    android:id="@+id/nationalityTitle"
+                    style="@style/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="0.75"
+                    android:padding="5dp"
+                    android:text="@string/passport_nationality"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/nationalityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="2.25"
+                    android:padding="5dp"
+                    android:text="@string/passport_nationality" />
+            </LinearLayout>
+            -->
+
+            <TableLayout
+                android:id="@+id/personalInfoTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:id="@+id/nameRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/resourceNameTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_name"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/resourceName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/passport_name" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/surnamesRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/surnamesTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_surnames"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/surnamesText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_surnames" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/dateofbirthRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/dateofbirthTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_dateofbirth"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/dateofbirthText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_dateofbirth" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/genderRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/genderTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_gender"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/genderText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_gender" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/nationalityRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/nationalityTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_nationality"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/nationalityText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_nationality" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/PassportInfoLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/passportInfoHeader"
+                style="@style/sectionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/passport_passport_info" />
+
+            <TableLayout
+                android:id="@+id/passportInfoTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:id="@+id/documentNumberRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/documentNumberTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_number"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/documentNumberText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/passport_number" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/expeditionDateRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                  <!--   <TextView
+                        android:id="@+id/expeditionDateTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_expeditiondate"
+                        android:textAllCaps="true" /> 
+
+                    <TextView
+                        android:id="@+id/expeditionDateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_expeditiondate" />
+                        -->
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/expirationDateRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/expirationDateTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_expirationdate"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/expirationDateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_expirationdate" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/documentIDRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/documentIDTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_id"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/documentIDText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_id" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/certificateRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/certificateTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_certificate"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/certificateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_certificate" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/signatureAlgorithmRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/signatureAlgorithmTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_signatureal"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/signatureAlgorithmText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_signatureal" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/fingerprintRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/fingerprintTitle"
+                        style="@style/titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_fingerprint"
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/fingerprintText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:text="@string/passport_fingerprint" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/DatagroupHashesLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/datagroupHashesHeader"
+                style="@style/sectionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/passport_datagroup_hashes" />
+
+            <LinearLayout
+                android:id="@+id/dataGroup1Container"
+                style="@style/layoutBorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/datagroup1Title"
+                    style="@style/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/passport_datagroup1"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/datagroup1StoredTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_stored" />
+
+                <TextView
+                    android:id="@+id/datagroup1StoredText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_stored" />
+
+                <TextView
+                    android:id="@+id/datagroup1ComputedTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computed" />
+
+                <TextView
+                    android:id="@+id/datagroup1ComputedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computed" />
+
+                <TextView
+                    android:id="@+id/datagroup1ComputedMD5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computedMD5" />
+
+                <TextView
+                    android:id="@+id/datagroup1ComputedMD5Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computedMD5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dataGroup2Container"
+                style="@style/layoutBorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/datagroup2Title"
+                    style="@style/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/passport_datagroup2"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/datagroup2StoredTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_stored" />
+
+                <TextView
+                    android:id="@+id/datagroup2StoredText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_stored" />
+
+                <TextView
+                    android:id="@+id/datagroup2ComputedTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computed" />
+
+                <TextView
+                    android:id="@+id/datagroup2ComputedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computed" />
+
+                <TextView
+                    android:id="@+id/datagroup2ComputedMD5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computedMD5" />
+
+                <TextView
+                    android:id="@+id/datagroup2ComputedMD5Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computedMD5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dataGroup3Container"
+                style="@style/layoutBorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/datagroup3Title"
+                    style="@style/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.75"
+                    android:padding="5dp"
+                    android:text="@string/passport_datagroup3"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/datagroup3StoredTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_stored" />
+
+                <TextView
+                    android:id="@+id/datagroup3StoredText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_stored" />
+
+                <TextView
+                    android:id="@+id/datagroup3ComputedTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computed" />
+
+                <TextView
+                    android:id="@+id/datagroup3ComputedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computed" />
+
+                <TextView
+                    android:id="@+id/datagroup3ComputedMD5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computedMD5" />
+
+                <TextView
+                    android:id="@+id/datagroup3ComputedMD5Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computedMD5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dataGroup15Container"
+                style="@style/layoutBorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/datagroup15Title"
+                    style="@style/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.75"
+                    android:padding="5dp"
+                    android:text="@string/passport_datagroup15"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/datagroup15StoredTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_stored" />
+
+                <TextView
+                    android:id="@+id/datagroup15StoredText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_stored" />
+
+                <TextView
+                    android:id="@+id/datagroup15ComputedTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computed" />
+
+                <TextView
+                    android:id="@+id/datagroup15ComputedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computed" />
+
+                <TextView
+                    android:id="@+id/datagroup15ComputedMD5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computedMD5" />
+
+                <TextView
+                    android:id="@+id/datagroup15ComputedMD5Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/passport_datagroup_computedMD5" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

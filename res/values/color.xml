@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+       
+    <!-- BACKGROUND COLOR -->
+    <color name="background_blue">#429BBB</color>
+    
+    <!-- SECTION HEADER COLORS -->
+    <color name="section_header_emphasis">#33B5E5</color>
+    <color name="section_header_text">#0099CC</color>
+    <color name="section_header_separator">#0099CC</color>
+    
+    <!-- TEXT COLORS -->
+    <color name="text_general">#6E6E6E</color>
+    <color name="text_clear">#585858</color>
+    
+    <!-- LAYOUT BORDER COLOR -->
+    <color name="layout_border">#6E6E6E</color>
+    <color name="layout_background">#00ffffff</color>
+    
+     <!-- TITLE TEXT LAYOUT COLOR -->
+     <color name="title_layout_background">#1C1C1C</color>
+     
+     <!-- TAG DIALOG LAYOUT COLOR -->
+     <color name="selected_color_background">#429BBB</color>
+    
+     <!-- IMAGE VIEW COLORS -->
+     <!-- <color name="selected_imageview">#429BBB</color>   -->
+     <color name="selected_imageview">#ffffff</color>  
+     
+</resources>
